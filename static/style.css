@@ -39,7 +39,7 @@ body::before {
     text-decoration: solid;
 }
 
-.btn{
+.btn {
     border-radius: 50px;
     padding: 10px;
     background-color: grey;
@@ -47,12 +47,11 @@ body::before {
     background-color: #007bff;
 }
 
-
 .btn:hover {
     background-color: #0056b3;
 }
 
-select{
+select {
     border-radius: 5px;
     padding: 7px;
 }

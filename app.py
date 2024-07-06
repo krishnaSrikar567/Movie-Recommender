@@ -35,6 +35,11 @@ def recommend_movies():
     selected_movie = request.form['selected_movie']
     movies = pickle.load(open(os.path.join('artifacts', 'movie_list.pkl'), 'rb'))
     similarity = pickle.load(open(os.path.join('artifacts', 'similarity.pkl'), 'rb'))
+    
+    # Check if the selected movie is in the movie list
+    if selected_movie not in movies['title'].values:
+        return render_template('error.html', message=f"Movie '{selected_movie}' not found in database.")
+    
     recommended_movie_names, recommended_movie_posters = recommend(selected_movie, movies, similarity)
     return render_template('recommendations.html', movie_names=recommended_movie_names, movie_posters=recommended_movie_posters, zip=zip)
 
